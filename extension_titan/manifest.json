@@ -1,0 +1,47 @@
+{
+  "manifest_version": 3,
+  "name": "Air Hrome Ultimate Edition",
+  "version": "3.4.0",
+  "description": "AirHrome Titan — Ultimate Browser OS. By Артем Процко.",
+  "author": "Артем Процко @bortovt",
+
+  "chrome_url_overrides": {
+    "newtab": "newtab.html"
+  },
+
+  "permissions": [
+    "storage",
+    "tabs",
+    "history",
+    "bookmarks",
+    "downloads",
+    "topSites",
+    "declarativeNetRequest",
+    "declarativeNetRequestWithHostAccess"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
+  ],
+
+  "declarative_net_request": {
+    "rule_resources": [
+      {
+        "id": "remove_frame_headers",
+        "enabled": true,
+        "path": "rules.json"
+      }
+    ]
+  },
+
+  "web_accessible_resources": [
+    {
+      "resources": ["scripts/*", "styles/*", "assets/*"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+
+  "background": {
+    "service_worker": "scripts/background.js"
+  }
+}

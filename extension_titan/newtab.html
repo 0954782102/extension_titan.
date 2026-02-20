@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>AirHrome Titan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+  <div id="bg" class="bg-layer"></div>
+  <div class="bg-overlay" id="bgOverlay"></div>
+  <div class="noise-layer"></div>
+
+  <div id="dropOverlay" class="drop-overlay hidden">
+    <div class="drop-overlay-inner">
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      <p>Перетягни фото сюди</p>
+      <span>щоб встановити як шпалери</span>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar-brand">
+      <div class="brand-icon">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="brand-text">
+        <span class="brand-name">Air Hrome</span>
+        <span class="brand-sub">ULTIMATE EDITION</span>
+      </div>
+    </div>
+    <div class="topbar-actions">
+      <button class="topbar-btn" id="aiHubBtn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"/></svg>
+        AI HUB
+      </button>
+      <button class="topbar-btn icon-btn" id="settingsTrigger">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </button>
+    </div>
+  </header>
+
+  <aside class="ai-panel" id="aiPanel">
+    <div class="ai-panel-header">
+      <span class="ai-panel-title">AI CORE</span>
+      <button class="ai-panel-close" id="aiPanelClose">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="ai-list" id="aiList">
+      <button class="ai-item" onclick="window.open('https://chatgpt.com')">
+        <div class="ai-item-icon chatgpt-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.282 9.821a5.985 5.985 0 0 0-.516-4.91 6.046 6.046 0 0 0-6.51-2.9A6.065 6.065 0 0 0 4.981 4.18a5.985 5.985 0 0 0-3.998 2.9 6.046 6.046 0 0 0 .743 7.097 5.98 5.98 0 0 0 .51 4.911 6.051 6.051 0 0 0 6.515 2.9A5.985 5.985 0 0 0 13.26 24a6.056 6.056 0 0 0 5.772-4.206 5.99 5.99 0 0 0 3.997-2.9 6.056 6.056 0 0 0-.747-7.073z"/></svg></div>
+        <span>ChatGPT</span>
+        <svg class="ai-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="ai-item" onclick="window.open('https://gemini.google.com')">
+        <div class="ai-item-icon gemini-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg></div>
+        <span>Gemini</span>
+        <svg class="ai-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="ai-item" onclick="window.open('https://claude.ai')">
+        <div class="ai-item-icon claude-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2zm0 18a8 8 0 1 1 8-8 8 8 0 0 1-8 8z"/></svg></div>
+        <span>Claude</span>
+        <svg class="ai-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+      <button class="ai-item" onclick="window.open('https://perplexity.ai')">
+        <div class="ai-item-icon perplexity-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg></div>
+        <span>Perplexity</span>
+        <svg class="ai-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </button>
+    </div>
+    <div class="ai-custom">
+      <input type="text" id="customAiUrl" placeholder="Додати свій AI URL...">
+      <button id="addAiBtn">+</button>
+    </div>
+  </aside>
+
+  <!-- FLOATING APP WINDOW -->
+  <div id="floatWin" class="float-win hidden">
+    <div class="float-win-titlebar" id="floatWinTitlebar">
+      <div class="float-win-favicon" id="floatWinFavicon"></div>
+      <span class="float-win-title" id="floatWinTitle">App</span>
+      <div class="float-win-url-bar" id="floatWinUrlBar">
+        <span id="floatWinUrlText"></span>
+      </div>
+      <div class="float-win-controls">
+        <button class="float-win-btn" id="floatWinRefresh" title="Оновити">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+        <button class="float-win-btn" id="floatWinMaximize" title="На весь екран">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+        </button>
+        <button class="float-win-btn" id="floatWinNewTab" title="Відкрити у новій вкладці">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </button>
+        <button class="float-win-btn float-win-close" id="floatWinClose" title="Закрити">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="float-win-body" id="floatWinBody">
+      <div class="float-win-loading" id="floatWinLoading">
+        <div class="float-win-spinner"></div>
+        <span>Завантаження...</span>
+      </div>
+      <!-- iframe + declarativeNetRequest rules strip X-Frame-Options server-side -->
+      <iframe id="floatWinIframe" src="about:blank" allowfullscreen
+        sandbox="allow-same-origin allow-scripts allow-forms allow-popups allow-popups-to-escape-sandbox allow-top-navigation-by-user-activation"
+        style="opacity:0;transition:opacity .3s"></iframe>
+    </div>
+    <!-- Resize handles -->
+    <div class="float-win-resize-e"  data-dir="e"></div>
+    <div class="float-win-resize-s"  data-dir="s"></div>
+    <div class="float-win-resize-se" data-dir="se"></div>
+    <div class="float-win-resize-w"  data-dir="w"></div>
+    <div class="float-win-resize-n"  data-dir="n"></div>
+    <div class="float-win-resize-sw" data-dir="sw"></div>
+    <div class="float-win-resize-ne" data-dir="ne"></div>
+    <div class="float-win-resize-nw" data-dir="nw"></div>
+  </div>
+
+  <main class="center-stage">
+    <div class="clock-container">
+      <div id="date" class="clock-date"></div>
+      <div id="clock" class="clock-time"></div>
+    </div>
+    <div class="search-wrapper">
+      <div class="search-bar">
+        <div class="search-icon">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </div>
+        <input type="text" id="mainSearch" placeholder="Пошук у Google або URL..." autocomplete="off" spellcheck="false">
+        <button class="search-submit" id="searchSubmit">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </button>
+      </div>
+    </div>
+  </main>
+
+  <div id="widgetsLayer" class="widgets-layer">
+    <div class="widget draggable-widget" id="widget-notes" data-widget-id="notes">
+      <div class="widget-drag-handle">
+        <div class="widget-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+          НОТАТКИ
+          <div class="widget-handle-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="5" r="1" fill="currentColor"/><circle cx="15" cy="5" r="1" fill="currentColor"/><circle cx="9" cy="12" r="1" fill="currentColor"/><circle cx="15" cy="12" r="1" fill="currentColor"/><circle cx="9" cy="19" r="1" fill="currentColor"/><circle cx="15" cy="19" r="1" fill="currentColor"/></svg></div>
+        </div>
+      </div>
+      <textarea id="notesArea" placeholder="Тут ваші геніальні ідеї..."></textarea>
+      <div class="widget-footer">AUTO-SAVED TO LOCAL STORAGE</div>
+      <div class="widget-resize-handle"></div>
+    </div>
+
+    <div class="widget draggable-widget" id="widget-focus" data-widget-id="focus">
+      <div class="widget-drag-handle">
+        <div class="widget-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          FOCUS FLOW
+          <div class="widget-handle-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="5" r="1" fill="currentColor"/><circle cx="15" cy="5" r="1" fill="currentColor"/><circle cx="9" cy="12" r="1" fill="currentColor"/><circle cx="15" cy="12" r="1" fill="currentColor"/><circle cx="9" cy="19" r="1" fill="currentColor"/><circle cx="15" cy="19" r="1" fill="currentColor"/></svg></div>
+        </div>
+      </div>
+      <div class="focus-timer" id="timer">25:00</div>
+      <div class="focus-progress"><div class="focus-progress-bar" id="progressBar"></div></div>
+      <div class="focus-controls">
+        <button class="focus-btn focus-btn-play" id="timerToggle">
+          <svg id="playIcon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+        </button>
+        <button class="focus-btn focus-btn-reset" id="timerReset">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+      </div>
+      <div class="focus-presets">
+        <button class="preset-btn active" data-mins="25">25хв</button>
+        <button class="preset-btn" data-mins="15">15хв</button>
+        <button class="preset-btn" data-mins="50">50хв</button>
+        <button class="preset-btn" data-mins="5">5хв</button>
+      </div>
+      <div class="widget-resize-handle"></div>
+    </div>
+
+    <div class="widget draggable-widget" id="widget-weather" data-widget-id="weather">
+      <div class="widget-drag-handle">
+        <div class="widget-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 18a5 5 0 0 0-10 0"/><line x1="12" y1="2" x2="12" y2="9"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          WEATHER
+          <div class="widget-handle-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="5" r="1" fill="currentColor"/><circle cx="15" cy="5" r="1" fill="currentColor"/><circle cx="9" cy="12" r="1" fill="currentColor"/><circle cx="15" cy="12" r="1" fill="currentColor"/><circle cx="9" cy="19" r="1" fill="currentColor"/><circle cx="15" cy="19" r="1" fill="currentColor"/></svg></div>
+        </div>
+      </div>
+      <div class="weather-temp" id="weatherTemp">—°</div>
+      <div class="weather-desc" id="weatherDesc">Визначення...</div>
+      <div class="weather-city" id="weatherCity"></div>
+      <div class="widget-resize-handle"></div>
+    </div>
+
+    <!-- MUSIC PLAYER WIDGET -->
+    <div class="widget draggable-widget" id="widget-music" data-widget-id="music">
+      <div class="widget-drag-handle">
+        <div class="widget-header">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+          MUSIC
+          <div class="widget-handle-hint"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="9" cy="5" r="1" fill="currentColor"/><circle cx="15" cy="5" r="1" fill="currentColor"/><circle cx="9" cy="12" r="1" fill="currentColor"/><circle cx="15" cy="12" r="1" fill="currentColor"/><circle cx="9" cy="19" r="1" fill="currentColor"/><circle cx="15" cy="19" r="1" fill="currentColor"/></svg></div>
+        </div>
+      </div>
+      <div class="music-widget-body">
+        <div class="music-tabs">
+          <button class="music-tab active" data-src="soundcloud">SoundCloud</button>
+          <button class="music-tab" data-src="youtube">YouTube</button>
+          <button class="music-tab" data-src="spotify">Spotify</button>
+        </div>
+        <div class="music-embed-wrap">
+          <iframe id="musicFrame" class="music-frame"
+            src="https://w.soundcloud.com/player/?url=https%3A//soundcloud.com/discover&color=%230A84FF&auto_play=false&hide_related=false&show_comments=false&show_user=false&show_reposts=false&show_teaser=false&visual=true"
+            scrolling="no" frameborder="no" allow="autoplay"></iframe>
+        </div>
+        <div class="music-open-btn-wrap">
+          <button class="music-open-btn" id="musicOpenBtn">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            Відкрити
+          </button>
+        </div>
+      </div>
+      <div class="widget-resize-handle"></div>
+    </div>
+  </div>
+
+  <button id="editModeBtn" class="edit-mode-btn" title="Customize layout">
+    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+    <span>Customize</span>
+  </button>
+
+  <nav class="dock">
+    <div class="dock-glass">
+      <div class="dock-group">
+        <button class="dock-btn" title="Історія" id="dockHistory">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </button>
+        <button class="dock-btn" title="Завантаження" id="dockDownloads">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        </button>
+        <button class="dock-btn" title="Закладки" id="dockBookmarks">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+        </button>
+      </div>
+      <div class="dock-sep"></div>
+      <div class="dock-group" id="dockAppsGroup">
+        <button class="dock-btn dock-app colored-btn youtube" title="YouTube" data-url="https://youtube.com" data-name="YouTube">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="white"/></svg>
+        </button>
+        <button class="dock-btn dock-app colored-btn telegram" title="Telegram" data-url="https://web.telegram.org/a/" data-name="Telegram">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.64 6.8-1.7 8.02c-.12.58-.44.72-.88.45l-2.5-1.84-1.2 1.16c-.13.13-.25.25-.52.25l.18-2.57 4.7-4.25c.2-.18-.04-.28-.32-.1L7.74 14.6l-2.46-.77c-.54-.17-.55-.54.11-.8l9.6-3.7c.44-.16.83.1.65.47z"/></svg>
+        </button>
+        <button class="dock-btn dock-app colored-btn globe" title="Google" data-url="https://google.com" data-name="Google">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+        </button>
+        <button class="dock-btn dock-app colored-btn mail" title="Gmail" data-url="https://mail.google.com" data-name="Gmail">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </button>
+        <button class="dock-btn dock-app colored-btn github" title="GitHub" data-url="https://github.com" data-name="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+        </button>
+        <button class="dock-btn dock-app colored-btn brave" title="Brave Search" data-url="https://search.brave.com" data-name="Brave">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.14 5.03L12.93 2.3a2 2 0 0 0-1.86 0L4.86 5.03A2 2 0 0 0 3.74 6.8L3 14.26a6 6 0 0 0 2.39 5.28l4.72 3.15a3 3 0 0 0 3.78 0l4.72-3.15A6 6 0 0 0 21 14.26L20.26 6.8a2 2 0 0 0-1.12-1.77z"/></svg>
+        </button>
+      </div>
+      <div class="dock-sep"></div>
+      <button class="dock-btn" id="addSiteBtn" title="Додати сайт">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <div id="addSiteModal" class="mini-modal hidden">
+    <div class="mini-modal-inner">
+      <div class="mini-modal-title">Додати сайт у панель</div>
+      <input type="text" id="addSiteName" placeholder="Назва (напр. Reddit)" autocomplete="off">
+      <input type="text" id="addSiteUrl" placeholder="URL (напр. reddit.com)" autocomplete="off">
+      <div class="mini-modal-actions">
+        <button id="addSiteCancel" class="mini-btn mini-btn-cancel">Скасувати</button>
+        <button id="addSiteConfirm" class="mini-btn mini-btn-confirm">Додати</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="settingsBackdrop" class="modal-backdrop hidden">
+    <div class="settings-modal">
+      <div class="settings-sidebar">
+        <div class="settings-logo">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <nav class="settings-nav">
+          <button class="settings-nav-item active" data-tab="appearance">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/></svg>
+            Appearance
+          </button>
+          <button class="settings-nav-item" data-tab="widgets">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+            Widgets
+          </button>
+          <button class="settings-nav-item" data-tab="security">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            Security
+          </button>
+          <button class="settings-nav-item" data-tab="advanced">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Advanced
+          </button>
+        </nav>
+        <div class="settings-version">v3.2.0 · by Артем Процко</div>
+      </div>
+      <div class="settings-content">
+        <div class="settings-tab active" data-tab="appearance">
+          <h2>Appearance</h2>
+          <div class="setting-group">
+            <label>Background Image URL</label>
+            <input type="text" id="bgInput" placeholder="https://images.unsplash.com/...">
+          </div>
+          <div class="setting-group">
+            <label>Glass Blur <span id="blurVal">25px</span></label>
+            <input type="range" min="0" max="60" value="25" id="blurRange" class="range-slider">
+          </div>
+          <div class="setting-group">
+            <label>Overlay Darkness <span id="overlayVal">40%</span></label>
+            <input type="range" min="0" max="85" value="40" id="overlayRange" class="range-slider">
+          </div>
+          <div class="setting-group">
+            <label>Accent Color</label>
+            <div class="color-presets">
+              <div class="color-dot active" style="background:#0A84FF" data-color="#0A84FF"></div>
+              <div class="color-dot" style="background:#30D158" data-color="#30D158"></div>
+              <div class="color-dot" style="background:#FF375F" data-color="#FF375F"></div>
+              <div class="color-dot" style="background:#FFD60A" data-color="#FFD60A"></div>
+              <div class="color-dot" style="background:#BF5AF2" data-color="#BF5AF2"></div>
+              <div class="color-dot" style="background:#FF9F0A" data-color="#FF9F0A"></div>
+              <div class="color-dot" style="background:#64D2FF" data-color="#64D2FF"></div>
+            </div>
+          </div>
+          <div class="setting-group">
+            <label>Clock Format</label>
+            <div class="option-row">
+              <button class="option-pill active" data-clock="24">24h</button>
+              <button class="option-pill" data-clock="12">12h AM/PM</button>
+            </div>
+          </div>
+        </div>
+        <div class="settings-tab hidden" data-tab="widgets">
+          <h2>Widgets</h2>
+          <div class="setting-group">
+            <label>Видимі Widgets</label>
+            <div class="toggle-list">
+              <div class="toggle-row">
+                <span>Focus Flow Timer</span>
+                <label class="toggle-switch"><input type="checkbox" id="togFocus" checked><span class="toggle-thumb"></span></label>
+              </div>
+              <div class="toggle-row">
+                <span>Нотатки</span>
+                <label class="toggle-switch"><input type="checkbox" id="togNotes" checked><span class="toggle-thumb"></span></label>
+              </div>
+              <div class="toggle-row">
+                <span>Weather</span>
+                <label class="toggle-switch"><input type="checkbox" id="togWeather" checked><span class="toggle-thumb"></span></label>
+              </div>
+              <div class="toggle-row">
+                <span>Music Player</span>
+                <label class="toggle-switch"><input type="checkbox" id="togMusic" checked><span class="toggle-thumb"></span></label>
+              </div>
+            </div>
+          </div>
+          <div class="setting-group" style="margin-top:12px">
+            <button class="save-btn" id="resetLayoutBtn" style="margin-top:0">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:5px"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+              Скинути позиції
+            </button>
+          </div>
+        </div>
+        <div class="settings-tab hidden" data-tab="security">
+          <h2>Security</h2>
+          <p class="settings-desc">Ad blocking rules active. 4 domains blocked.</p>
+          <div class="security-status">
+            <div class="status-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#30D158" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Ad Blocking — Active</span></div>
+            <div class="status-row"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#30D158" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg><span>Link Scanner — Active</span></div>
+          </div>
+        </div>
+        <div class="settings-tab hidden" data-tab="advanced">
+          <h2>Advanced</h2>
+          <div class="author-card">
+            <div class="author-avatar">АП</div>
+            <div class="author-info">
+              <div class="author-name">Артем Процко</div>
+              <div class="author-handle">@bortovt</div>
+            </div>
+          </div>
+          <p class="settings-desc" style="margin-top:14px;margin-bottom:20px">AirHrome Titan Edition — Ultimate Browser OS. Security, AI, Productivity.</p>
+          <div class="setting-group">
+            <label>Нотатки</label>
+            <button class="save-btn" id="exportNotesBtn" style="margin-top:0">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:5px"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+              Завантажити нотатки .txt
+            </button>
+          </div>
+          <div class="setting-group">
+            <label>Data</label>
+            <button class="save-btn danger-btn" id="clearDataBtn" style="margin-top:0">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="display:inline;vertical-align:middle;margin-right:5px"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/></svg>
+              Очистити всі налаштування
+            </button>
+          </div>
+        </div>
+        <button id="saveSettings" class="save-btn">Save Changes</button>
+      </div>
+      <button id="closeSettings" class="modal-close">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="scripts/newtab.js"></script>
+</body>
+</html>
