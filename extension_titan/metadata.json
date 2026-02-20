@@ -1,0 +1,10 @@
+
+{
+  "name": "AirHrome Ultimate",
+  "description": "A macOS-inspired Chrome New Tab replacement with interactive widgets, drag-and-drop customization, and AI integration.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}

@@ -1,0 +1,20 @@
+
+{
+  "manifest_version": 3,
+  "name": "AirHrome Ultimate",
+  "version": "1.0",
+  "description": "macOS-inspired New Tab replacement with AI Sidebar, Focus Timer, and Drag-and-Drop widgets.",
+  "chrome_url_overrides": {
+    "newtab": "index.html"
+  },
+  "permissions": [
+    "storage",
+    "unlimitedStorage",
+    "bookmarks",
+    "history",
+    "downloads"
+  ],
+  "action": {
+    "default_title": "AirHrome Ultimate"
+  }
+}
